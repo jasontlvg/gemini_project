@@ -1,80 +1,76 @@
 extends partials/adminLayout.pug
 
 block content
-    section.formSection
-            form.formSection__form(action="")
-                
-                .formSection__form__section.formSection__form__section--personal
+    .left
+        <form class="lala">
+            <div class="form-group form-group--datos">
+                label.form-group__label() Datos
+                .form-group__inputContainer
+                    input.form-group__inputContainer__input(type="text" class="form-control" placeholder="Nombre/s" )
+                    input.form-group__inputContainer__input(type="text" class="form-control" placeholder="A. Paterno" )
+                    input.form-group__inputContainer__input(type="text" class="form-control" placeholder="A. Materno" )
+            </div>
 
-                    .formSection__form__section__group.formSection__form__section__group--datos
-                        .formSection__form__section__group__labelContainer.formSection__form__section__group__labelContainer--datos
-                            label(for="nombre") Datos
-                        .formSection__form__section__group__inputContainer.formSection__form__section__group__inputContainer--datos
-                            input#nombre(type="text" class="form-control" aria-describedby="" placeholder="Nombre/s")
-                            input(type="text" class="form-control" aria-describedby="" placeholder="A. Paterno")
-                            input(type="text" class="form-control" aria-describedby="" placeholder="A. Materno")
-                
-                    .formSection__form__section__group
-                        .formSection__form__section__group__labelContainer
-                            label Edad
-                        .formSection__form__section__group__inputContainer
-                            input(type="number" class="form-control" name="" min="18" max="90")                    
-                    
-                    .formSection__form__section__group.formSection__form__section--personal__group
-                        .formSection__form__section__group__labelContainer
-                            label Sexo
-                        .formSection__form__section__group__inputContainer
-                            select(name="" class="custom-select")
-                                option Masculino
-                                option Femenino
+            <div class="form-group">
+                label Edad
+                input.input(type="number" class="form-control" name="" min="18" max="90")    
+            </div>
 
-                    .formSection__form__section__group
-                        .formSection__form__section__group__labelContainer
-                            label Email
-                        .formSection__form__section__group__inputContainer
-                            input(type="email" class="form-control" id="exampleInputPassword1" placeholder="")
-                
-                .formSection__form__section.formSection__form__section--laboral
+            <div class="form-group">
+                label Sexo
+                select.input(name="" class="custom-select" id="lala")
+                    option Masculino
+                    option Femenino
+            </div>
 
-                    .formSection__form__section__group
-                        .formSection__form__section__group__labelContainer
-                            label Cargo
-                        .formSection__form__section__group__inputContainer
-                            select(name="" class="custom-select")
-                                option Masculino
-                                option Femenino                    
-                                option Masculino
-                                option Femenino
+            <div class="form-group">
+                label Email
+                input.input(type="email" class="form-control" id="exampleInputPassword1" placeholder="")
+            </div>
 
-                    .formSection__form__section__group
-                        .formSection__form__section__group__labelContainer
-                            label Jornada
-                        .formSection__form__section__group__inputContainer
-                            select(name="" class="custom-select")
-                                option Diurna
-                                option Nocturna                    
-                                option Mixta
+            <div class="form-group">
+                label Cargo
+                select.input(name="" class="custom-select")
+                    option Masculino
+                    option Femenino                    
+                    option Masculino
+                    option Femenino
+            </div>
 
-                    .formSection__form__section__group
-                        .formSection__form__section__group__labelContainer
-                            label Escolaridad
-                        .formSection__form__section__group__inputContainer
-                            select(name="" class="custom-select")
-                                option Primaria
-                                option Secundaria                    
-                                option Preparatoria                       
-                                option Técnica                       
-                                option Universidad                       
-                                option Especialización                       
-                                option Doctorado                       
-                                option Maestría     
+            <div class="form-group">
+                label Jornada
+                select.input(name="" class="custom-select")
+                    option Diurna
+                    option Nocturna                    
+                    option Mixta
+            </div>
 
+            <div class="form-group">
+                label Escolaridad
+                select.input(name="" class="custom-select")
+                    option Primaria
+                    option Secundaria                    
+                    option Preparatoria                       
+                    option Técnica                       
+                    option Universidad                       
+                    option Especialización                       
+                    option Doctorado                       
+                    option Maestría 
+            </div>
 
-                    .formSection__form__section__group
-                        .formSection__form__section__group__labelContainer
-                            label Departamento
-                        .formSection__form__section__group__inputContainer
-                            select(name="" class="custom-select")
-                                option Primaria
-                                option Secundaria                    
-                                option Preparatoria
+            <div class="form-group">
+                label Departamento
+                select.input(name="" class="custom-select")
+                    option Primaria
+                    option Secundaria                    
+                    option Preparatoria
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    .right
+        img.boyIcon#boyIcon(src=require("../img/boy.svg"), alt="")
+        img.girlIcon#girlIcon(src=require("../img/girl.svg"), alt="")
+        h1 Agregar Usuario

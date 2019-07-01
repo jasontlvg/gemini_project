@@ -1,55 +1,72 @@
-.formSection{
-    width: 100%;
+@import 'formGrid';
+
+*{
+    box-sizing: border-box;
 }
 
-.formSection__form{
-    width: 100%;
-    &__section{
-        width: 100%;
-        // background: tomato;
-        display: flex;
-        flex-wrap: wrap;
-        // justify-content: space-between;
+img{
+    max-width: 100%;
 
-        &--laboral{
-            margin-top: 1em;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    // input,select{
+    //     width: 10em;
+    // }
+    &__label{
+        
+    }
+
+    &__inputContainer{
+        display: block;
+        @media (min-width: $desktop) {
+            // display: flex;
+            justify-content: space-between;
+            
         }
-
-        &__group{
-            display: flex;
-            flex-wrap: wrap;
-            
-            &--datos{
-                width: 100%;
-                // background: green;
-                margin-bottom: 1em;
+        &__input{
+            margin-bottom: 0.5em;
+            @media (min-width: $desktop) {
+                // margin-bottom: 0;
+                // width: 20em;
+                // display: flex;
+                // justify-content: space-between;
             }
-    
-            &__labelContainer{
-                width: 100%;
-                &--datos{
-                    display: flex;
-                    flex-wrap: nowrap;
-                }
-            }
-            
-            &__inputContainer{
-                &--datos{
-                    width: 100%;
-                    // background: red;
-                    display: flex;
-                    justify-content: space-between;
-                    input{
-                        // flex: 1 1 auto;
-                        // background: blue;
-                        width: 22em;
-                    }
-
-                }
-            }
-
-    
         }
     }
 
+    
+
+}
+
+.input{
+    
+    @media (min-width: 902px) {
+        // width: 20em;
+        // background: red;
+    }
+}
+
+.lala{
+    width: 100%;
+}
+
+$wi: 40%;
+
+.girlIcon{
+    display: none;
+    width: $wi;
+
+    &.active{
+        display: block;
+    }
+}
+
+.boyIcon{
+    width: $wi;
+    &.disabled{
+        display: none;
+    }
 }

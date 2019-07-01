@@ -1,4 +1,6 @@
 @import 'normalize';
+$desktop: 902px;
+$pm: 4em;
 
 *{
     outline: none;
@@ -14,6 +16,7 @@ body{
     font-size: .875em;
     // color: #353c4e;
     font-family: 'Open Sans', sans-serif;
+    
 }
 
 .wrap{
@@ -23,6 +26,12 @@ body{
 }
 
 .header{
+    display: none;
+    @media (min-width: $desktop) {
+        display: block;
+        
+    }
+
     width: 17.2em;
     background: #404e67;
     box-shadow: 0 0 11px rgba(0,0,0,.13);
@@ -152,7 +161,7 @@ body{
     }
 
     &__content{
-        padding: 2.7em;
+        // padding: 2.7em;
     }
 
 }
