@@ -6,51 +6,59 @@ block content
                 
                 .formSection__form__section.formSection__form__section--personal
 
-                    .formSection__form__section__group.formSection__form__section--personal__group.formSection__form__section--personal__group--datos
-                        label(for="nombre") Datos
-                        .formSection__form__section__group__inputContainer.formSection__form__section--personal__group__inputContainer.formSection__form__section--personal__group--datos__inputContainer
+                    .formSection__form__section__group.formSection__form__section__group--datos
+                        .formSection__form__section__group__labelContainer.formSection__form__section__group__labelContainer--datos
+                            label(for="nombre") Datos
+                        .formSection__form__section__group__inputContainer.formSection__form__section__group__inputContainer--datos
                             input#nombre(type="text" class="form-control" aria-describedby="" placeholder="Nombre/s")
                             input(type="text" class="form-control" aria-describedby="" placeholder="A. Paterno")
                             input(type="text" class="form-control" aria-describedby="" placeholder="A. Materno")
                 
-                    .formSection__form__section__group.formSection__form__section--personal__group.formSection__form__section--personal__group--edad
-                        label Edad
-                        .formSection__form__section__group__inputContainer.formSection__form__section--personal__group__inputContainer.formSection__form__section--personal__group--edad__inputContainer
+                    .formSection__form__section__group
+                        .formSection__form__section__group__labelContainer
+                            label Edad
+                        .formSection__form__section__group__inputContainer
                             input(type="number" class="form-control" name="" min="18" max="90")                    
                     
-                    .formSection__form__section__group.formSection__form__section--personal__group.formSection__form__section--personal__group--sexo
-                        label Sexo
-                        .formSection__form__section__group__inputContainer.formSection__form__section--personal__group__inputContainer.formSection__form__section--personal__group--sexo__inputContainer
+                    .formSection__form__section__group.formSection__form__section--personal__group
+                        .formSection__form__section__group__labelContainer
+                            label Sexo
+                        .formSection__form__section__group__inputContainer
                             select(name="" class="custom-select")
                                 option Masculino
                                 option Femenino
 
-                    .formSection__form__section__group.formSection__form__section--personal__group.formSection__form__section--personal__group--email
-                        label Email
-                        .formSection__form__section__group__inputContainer.formSection__form__section--personal__group__inputContainer.formSection__form__section--personal__group--email__inputContainer
+                    .formSection__form__section__group
+                        .formSection__form__section__group__labelContainer
+                            label Email
+                        .formSection__form__section__group__inputContainer
                             input(type="email" class="form-control" id="exampleInputPassword1" placeholder="")
                 
                 .formSection__form__section.formSection__form__section--laboral
-                    .formSection__form__section__group.formSection__form__section--laboral__group.formSection__form__section__group.formSection__form__section--laboral__group--cargo
-                        label Cargo
-                        .formSection__form__section__group__inputContainer.formSection__form__section--laboral__group__inputContainer.formSection__form__section__group__inputContainer.formSection__form__section--laboral__group--cargo__inputContainer
+
+                    .formSection__form__section__group
+                        .formSection__form__section__group__labelContainer
+                            label Cargo
+                        .formSection__form__section__group__inputContainer
                             select(name="" class="custom-select")
                                 option Masculino
                                 option Femenino                    
                                 option Masculino
                                 option Femenino
 
-                    .formSection__form__section__group.formSection__form__section--laboral__group.formSection__form__section__group.formSection__form__section--laboral__group--jornada
-                        label Jornada
-                        .formSection__form__section__group__inputContainer.formSection__form__section--laboral__group__inputContainer.formSection__form__section__group__inputContainer.formSection__form__section--laboral__group--jornada__inputContainer
+                    .formSection__form__section__group
+                        .formSection__form__section__group__labelContainer
+                            label Jornada
+                        .formSection__form__section__group__inputContainer
                             select(name="" class="custom-select")
                                 option Diurna
                                 option Nocturna                    
                                 option Mixta
 
-                    .formSection__form__section__group.formSection__form__section--laboral__group.formSection__form__section__group.formSection__form__section--laboral__group--escolaridad
-                        label Escolaridad
-                        .formSection__form__section__group__inputContainer.formSection__form__section--laboral__group__inputContainer.formSection__form__section__group__inputContainer.formSection__form__section--laboral__group--escolaridad__inputContainer
+                    .formSection__form__section__group
+                        .formSection__form__section__group__labelContainer
+                            label Escolaridad
+                        .formSection__form__section__group__inputContainer
                             select(name="" class="custom-select")
                                 option Primaria
                                 option Secundaria                    
@@ -62,9 +70,10 @@ block content
                                 option Maestría     
 
 
-                    .formSection__form__section__group.formSection__form__section--laboral__group.formSection__form__section__group.formSection__form__section--laboral__group--departamento 
-                        label Departamento
-                        .formSection__form__section__group__inputContainer.formSection__form__section--laboral__group__inputContainer.formSection__form__section__group__inputContainer.formSection__form__section--laboral__group--departamento__inputContainer 
+                    .formSection__form__section__group
+                        .formSection__form__section__group__labelContainer
+                            label Departamento
+                        .formSection__form__section__group__inputContainer
                             select(name="" class="custom-select")
                                 option Primaria
                                 option Secundaria                    
