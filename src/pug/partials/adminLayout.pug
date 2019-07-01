@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        <script src="https://kit.fontawesome.com/02ba78dad6.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
+
+
+    body
+        .wrap
+            header.header
+                .header__brand
+                    a.header__brand__container(href="/")
+                        i.header__brand__container__logo(class="fas fa-bolt")
+                        h2.header__brand__container__title GEMINI
+
+                nav.header__nav
+                    h2.header__nav__title Navegación 
+                    ul.header__nav__ul
+                        li.header__nav__ul__li: a.header__nav__ul__li__a(href="/empresas.html") 
+                            i.header__nav__ul__li__a__icon.header__nav__ul__li__a__icon--1(class="fas fa-building")
+                            p.header__nav__ul__li__a__title Empresas
+                            //- i.header__nav__ul__li__a__separator(class="fas fa-arrow-right")
+                        li.header__nav__ul__li: a.header__nav__ul__li__a(href="/empleados.html") 
+                            i.header__nav__ul__li__a__icon(class="fas fa-users")
+                            p.header__nav__ul__li__a__title Empleados
+                        li.header__nav__ul__li: a.header__nav__ul__li__a(href="/departamento.htm") 
+                            i.header__nav__ul__li__a__icon(class="fas fa-layer-group")
+                            p.header__nav__ul__li__a__title Departamentos
+                        li.header__nav__ul__li: a.header__nav__ul__li__a(href="#") 
+                            i.header__nav__ul__li__a__icon(class="fas fa-book-reader")
+                            p.header__nav__ul__li__a__title Resultados
+
+            main.main
+                .main__header
+                    i(class="fas fa-power-off")
+                .main__content
+                    block content
+            block script

@@ -1,0 +1,17 @@
+@import 'partials/bootstrap';
+@import 'partials/adminLayout';
+@import 'partials/formAddUser';
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.25);
+}
+
+.custom-select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+    outline: none !important;
+}

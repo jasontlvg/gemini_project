@@ -1,0 +1,49 @@
+.formSection{
+    width: 100%;
+    overflow: hidden;
+
+    &__form{
+        width: 100%;
+        // background: red;
+
+        &__section{
+
+            &__group{
+                display: flex;
+
+                &__inputContainer{
+                    background: green;
+                }
+
+            }
+
+            &--personal{
+
+                &__group{
+                   &--datos{
+
+                        &__inputContainer{
+                            display: flex;
+                        }
+
+                   }
+                }
+
+                background: skyblue;
+            }
+
+            &--laboral{
+                &__group{
+                    &--cargo{
+
+                        // background: green;
+                    }
+
+                }
+            }
+
+        }
+
+    }
+
+}
