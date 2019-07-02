@@ -1,11 +1,51 @@
 extends adminLayout.pug
 
-mixin puma(x,y)
+mixin puma(x,y,z)
     .crudContainer
         .crudContainer__header
             h2.crudContainer__header__title= x
-            button(type="button" class="btn btn-primary crudContainer__header__button" data-toggle="modal" data-target="#exampleModal")= y
+            //- button(type="button" class="btn btn-primary crudContainer__header__button" data-toggle="modal" data-target="#exampleModal" id="calabaza")= y
+            button(type="button" class="btn btn-primary crudContainer__header__button" id="calabaza")= y
                 i.crudContainer__header__button__icon(class="fas fa-user-plus")
         .crudContainer__body
-            block crudContainer__body
-
+            form(action=z method="POST" disabled)
+                table.table
+                    thead.table__thead.thead-dark
+                        tr.table__thead__row
+                            block table__thead__row__columns
+                    tbody.table__tbody
+                        tr.table__tbody__row
+                            block table__tbody__row__columns
+                            <td class="table__tbody__row__col table__tbody__row__col--mas">
+                                a.table__tbody__row__col__a.table__tbody__row__col--mas__a(href="#")
+                                    <i class="fas fa-info-circle"></i>
+                                a.table__tbody__row__col__a.table__tbody__row__col--mas__a(href="#")
+                                    <i class="fas fa-edit"></i>
+                                a.table__tbody__row__col__a.table__tbody__row__col--mas__a(href="#")
+                                    <i class="fas fa-trash-alt"></i>
+                            </td>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            h5(class="modal-title" id="exampleModalLabel")= y
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            form(action="")
+                                block formContent
+                                <button type="submit" class="btn btn-primary agregar">Agregar</button>
+                                <button type="button" class="btn btn-secondary cancelar" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+block scripts
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    block extra

@@ -1,18 +1,10 @@
 const x= require('./scss/empleados.scss');
 
-// let a= document.getElementById('lala');
-// let g= document.getElementById('girlIcon');
-// let b= document.getElementById('boyIcon');
+// console.log('Hola Mundo');
 
-// // alert('as;ldksal;k');
-// a.addEventListener('click', function(e){
-//     if(e.target.value == 'Masculino'){
-//         b.classList.remove('disabled');
-//         g.classList.remove('active');
-//         console.log('Cambiando a Masculino');
-//     }else if(e.target.value == 'Femenino'){
-//         g.classList.add('active');
-//         b.classList.add('disabled');
-//         console.log('Cambiando a Femenino');
-//     }
+// let calabazirijilla= document.getElementById('calabaza');
+
+
+// calabazirijilla.addEventListener('click', function(){
+//     // console.log('Hola');
 // });
