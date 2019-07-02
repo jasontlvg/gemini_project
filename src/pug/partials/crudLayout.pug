@@ -1,0 +1,11 @@
+extends adminLayout.pug
+
+mixin puma(x,y)
+    .crudContainer
+        .crudContainer__header
+            h2.crudContainer__header__title= x
+            button(type="button" class="btn btn-primary crudContainer__header__button" data-toggle="modal" data-target="#exampleModal")= y
+                i.crudContainer__header__button__icon(class="fas fa-user-plus")
+        .crudContainer__body
+            block crudContainer__body
+

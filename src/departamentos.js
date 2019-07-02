@@ -1,0 +1,1 @@
+const x= require('./scss/departamentos.scss');

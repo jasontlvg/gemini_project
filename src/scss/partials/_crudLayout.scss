@@ -1,0 +1,85 @@
+.crudContainer{
+    padding: $pc;
+    
+    @media (min-width: $desktop) {
+        padding: $pm;
+        
+    }
+    
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        // background: red;
+        margin-bottom: 2em;
+        
+        &__button{
+            // padding: 0;
+            // display: flex;
+            background-color: $prime-color;
+            border: 0;
+            transition: background-color 0.5s;
+            &:hover{
+                background-color: $secondary-color;
+            }
+
+            &__icon{
+                margin-left: 0.5em;
+            }
+        }
+    }
+    
+    &__body{
+        overflow: auto;
+        
+    }
+    
+}
+
+.table{
+    &__thead{
+
+        &__row{
+            // text-align: center;
+        }
+
+    }
+
+    &__tbody{
+        &__row{
+            // text-align: center;
+
+            &__col{
+                // text-align: center;
+                // background: red;
+
+                &--mas{
+                    // background: red;
+
+                    &__a{
+                        font-size: 18px;
+                        color: $prime-color;
+                        transition: color 0.5s;
+                        &:hover{    
+                            color: #404e67;
+
+                        }
+
+                        &:first-child{
+                            margin-right: 0.5em;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+.agregar{
+    background-color: $prime-color;
+    border: 0;
+}
+
+.agregar, .cancelar{
+    margin-top: 1em;
+}

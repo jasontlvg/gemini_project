@@ -1,0 +1,61 @@
+@import 'partials/bootstrap';
+@import "partials/bootstrap/functions";
+@import "partials/bootstrap/variables";
+@import "partials/bootstrap/mixins";
+// @import "partials/bootstrap/root";
+@import "partials/bootstrap/reboot";
+// @import "partials/bootstrap/type";
+// @import "partials/bootstrap/images";
+// @import "partials/bootstrap/code";
+// @import "partials/bootstrap/grid";
+@import "partials/bootstrap/tables";
+@import "partials/bootstrap/forms";
+// @import "partials/bootstrap/buttons";
+// @import "partials/bootstrap/transitions";
+// @import "partials/bootstrap/dropdown";
+// @import "partials/bootstrap/button-group";
+// @import "partials/bootstrap/input-group";
+@import "partials/bootstrap/custom-forms";
+@import "partials/bootstrap/nav";
+@import "partials/bootstrap/navbar";
+@import "partials/bootstrap/card";
+@import "partials/bootstrap/breadcrumb";
+@import "partials/bootstrap/pagination";
+@import "partials/bootstrap/badge";
+@import "partials/bootstrap/jumbotron";
+@import "partials/bootstrap/alert";
+@import "partials/bootstrap/progress";
+@import "partials/bootstrap/media";
+@import "partials/bootstrap/list-group";
+@import "partials/bootstrap/close";
+@import "partials/bootstrap/toasts";
+@import "partials/bootstrap/modal";
+@import "partials/bootstrap/tooltip";
+@import "partials/bootstrap/popover";
+@import "partials/bootstrap/carousel";
+@import "partials/bootstrap/spinners";
+@import "partials/bootstrap/utilities";
+@import "partials/bootstrap/print";
+
+@import 'partials/adminLayout';
+@import 'partials/crudLayout';
+
+.exampleModal{
+    padding-left: 0;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.25);
+}
+
+.custom-select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+    outline: none !important;
+}
+

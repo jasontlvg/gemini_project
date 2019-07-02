@@ -9,6 +9,8 @@ module.exports = {
         index:'./src/index.js',
         empresas: './src/empresas.js',
         empleados:'./src/empleados.js',
+        editarEmpleados:'./src/editarEmpleados.js',
+        departamentos:'./src/departamentos.js',
     },
     output: {
         path: __dirname+'/dist/',
@@ -79,6 +81,8 @@ module.exports = {
         new HtmlWebpackPlugin({template: './src/pug/index.pug', filename: 'index.html',minify: false, chunks: ['index']}), // 'template' es el lugar de donde toma el archivo a compilar, y 'filename' es como se llamara el archivo compilado
         new HtmlWebpackPlugin({template: './src/pug/empresas.pug', filename: 'empresas.html' ,minify: false, chunks: ['empresas']}),
         new HtmlWebpackPlugin({template: './src/pug/empleados.pug', filename: 'empleados.html' ,minify: false, chunks: ['empleados']}),
+        new HtmlWebpackPlugin({template: './src/pug/editarEmpleados.pug', filename: 'editarEmpleados.html' ,minify: false, chunks: ['editarEmpleados']}),
+        new HtmlWebpackPlugin({template: './src/pug/departamentos.pug', filename: 'departamentos.html' ,minify: false, chunks: ['departamentos']}),
         new MiniCssExtractPlugin({filename: "css/[name].css", chunkFilename: "[id].css" }) // Borra el 'css/' si quieres que se guarde en la raiz de 
     ]
 };
