@@ -1,0 +1,27 @@
+extends partials/adminLayout.pug
+block content
+    .crudContainer
+        .crudContainer__body
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" id="formContainer">
+                        <div class="modal-header">
+                            h5(class="modal-title" id="exampleModalLabel") {{title}}
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            .clone#clone
+                                label(for="") Modificar
+                                input(type="checkbox", name="" @click="prime" id="checkboxPrime")
+                        </div>
+                        <div class="modal-body" id="tlx">
+                            form(action="")
+                                include partials/empleadosForm.pug
+                                <button type="submit" class="btn btn-primary agregar" :class={activated:activatedSaveButton} id="editarBoton">Guardar</button>
+                                a(href="/" class="btn btn-secondary cancelar" id="regresarBoton") Regresar
+                                //- <button class="btn btn-secondary cancelar">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>

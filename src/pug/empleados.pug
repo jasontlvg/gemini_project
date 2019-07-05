@@ -1,6 +1,6 @@
 extends partials/crudLayout.pug
 block content
-    +puma('Gestion de Empleados', 'Agregar Empleado', 'lalo')
+    +puma('Gestion de Empleados', 'Agregar Empleado', '/editarEmpleados.html')
         block crudContainer__body
 
             block table__thead__row__columns
@@ -25,13 +25,7 @@ block content
             block formContent
                 include partials/empleadosForm.pug
 
-    block extra
-        script.
-            //- $(document).ready(function () {$('#exampleModal').modal('show');});
-            //- $(function() {$('#exampleModal').modal({show: true,keyboard: false,backdrop: 'static'});});
-            let calabazirijilla= document.getElementById('calabaza');
-            calabazirijilla.addEventListener('click', function(){
-                $(function() {$('#exampleModal').modal({show: true,keyboard: false,backdrop: 'static'});});
-                console.log('Hola');
-            });
-            //- $('#exampleModal').modal({backdrop: 'static', keyboard: false})  
+            
+            block table__tbody__row__columns--extra
+                a.table__tbody__row__col__a.table__tbody__row__col--mas__a.table__tbody__row__col--mas__a--info(href="verEmpleados.html")
+                    <i class="fas fa-info-circle"></i>

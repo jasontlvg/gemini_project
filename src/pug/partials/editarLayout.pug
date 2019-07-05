@@ -1,0 +1,28 @@
+extends adminLayout.pug
+
+mixin puma(y)
+    .crudContainer
+        .crudContainer__body
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" id="formContainer">
+                        <div class="modal-header">
+                            h5(class="modal-title" id="exampleModalLabel")= y
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            block modal-header__block
+                        </div>
+                        <div class="modal-body" id="tlx">
+                            form(action="")
+                                block formContent
+                                <button type="submit" class="btn btn-primary agregar" id="editarBoton">Agregar</button>
+                                a(href="/" class="btn btn-secondary cancelar" id="regresarBoton") Cancelar
+                                //- <button class="btn btn-secondary cancelar">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+block scripts

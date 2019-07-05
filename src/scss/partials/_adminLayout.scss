@@ -4,6 +4,7 @@ $cellphone: 576px;
 $pm: 4em;
 $pc: 2.5em;
 $prime-color: #f59904;
+$prime-color-hover: #ca7d00;
 $secondary-color: #404e67;
 
 *{
@@ -29,14 +30,19 @@ body{
     position: relative;
 }
 
+$master-width: 17.2em;
 .header{
     display: none;
+    // display: fixed;
     @media (min-width: $desktop) {
         display: block;
-        
     }
 
-    width: 17.2em;
+    width: $master-width;
+    // position: fixed;
+    // left: -$master-width;
+    // height: 100vh;
+
     background: #404e67;
     box-shadow: 0 0 11px rgba(0,0,0,.13);
     
@@ -143,6 +149,7 @@ body{
 }
 
 .main{
+    // margin-left: 0;
     flex: 1 1 auto;
     background-color: rgb(246, 247, 251);
     overflow: auto;
@@ -167,5 +174,7 @@ body{
     &__content{
         // padding: 2.7em;
     }
+
+
 
 }

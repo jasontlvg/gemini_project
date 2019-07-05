@@ -18,19 +18,21 @@
 .close{
     display: none;
 }
-.modal-header{
-    // background: red;
-    // display: flex;
-    // justify-content: flex-start;
 
-    .clone{
-        display: flex;
-        align-items: center;
+.agregar{
+    display: none;
+}
 
-        label{
-            margin: 0;
-            margin-right: 0.3em;
-        }
+.agregar.activated{
+    display: inline-block;
+}
+
+.clone{
+    display: flex;
+    align-items: center;
+    label{
+        margin: 0;
+        margin-right: 0.3em;
     }
 
 }
