@@ -11,7 +11,7 @@ html(lang="en")
 
     body
         .wrap
-            header.header
+            header.header#header
                 .header__brand
                     a.header__brand__container(href="/")
                         i.header__brand__container__logo(class="fas fa-bolt")
@@ -33,10 +33,15 @@ html(lang="en")
                         li.header__nav__ul__li: a.header__nav__ul__li__a(href="#") 
                             i.header__nav__ul__li__a__icon(class="fas fa-book-reader")
                             p.header__nav__ul__li__a__title Resultados
+                        li.header__nav__ul__li: a.header__nav__ul__li__a.header__nav__ul__li__a--off(href="#") 
+                            i.header__nav__ul__li__a__icon.header__nav__ul__li__a__icon--off(class="fas fa-power-off")
+                            p.header__nav__ul__li__a__title.header__nav__ul__li__a__title--off Cerrar Sesion
 
-            main.main
-                //- .main__header
-                .main__content
+            main.main#main
+                .main__header
+                    <i class="fas fa-bars" id="toggleButton"></i>
+                    //- <i class="fas fa-bolt" id="bolt"></i>
+                .main__content#main__content
                     block content
     block scripts
         //- block scriptManual

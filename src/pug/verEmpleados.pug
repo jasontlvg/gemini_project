@@ -16,10 +16,10 @@ block content
                                 input(type="checkbox", name="" @click="prime" id="checkboxPrime")
                         </div>
                         <div class="modal-body" id="tlx">
-                            form(action="")
+                            form(action="/linkFormulario")
                                 include partials/empleadosForm.pug
                                 <button type="submit" class="btn btn-primary agregar" :class={activated:activatedSaveButton} id="editarBoton">Guardar</button>
-                                a(href="/" class="btn btn-secondary cancelar" id="regresarBoton") Regresar
+                                a(href="/empleados.html" class="btn btn-secondary cancelar" id="regresarBoton") Regresar
                                 //- <button class="btn btn-secondary cancelar">Cerrar</button>
                         </div>
                     </div>

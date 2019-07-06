@@ -1,6 +1,6 @@
 extends adminLayout.pug
 
-mixin puma(y)
+mixin puma(x,y)
     .crudContainer
         .crudContainer__body
             <!-- Modal -->
@@ -18,7 +18,7 @@ mixin puma(y)
                             form(action="")
                                 block formContent
                                 <button type="submit" class="btn btn-primary agregar" id="editarBoton">Agregar</button>
-                                a(href="/" class="btn btn-secondary cancelar" id="regresarBoton") Cancelar
+                                a(href=x class="btn btn-secondary cancelar" id="regresarBoton") Cancelar
                                 //- <button class="btn btn-secondary cancelar">Cerrar</button>
                         </div>
                     </div>

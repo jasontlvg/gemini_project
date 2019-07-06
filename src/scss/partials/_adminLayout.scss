@@ -10,6 +10,7 @@ $secondary-color: #404e67;
 *{
     outline: none;
     outline: 0;
+    // transition: all 0.1s;
 }
 
 $x: 0.8em;
@@ -32,19 +33,29 @@ body{
 
 $master-width: 17.2em;
 .header{
-    display: none;
+    // display: none;
     // display: fixed;
-    @media (min-width: $desktop) {
-        display: block;
-    }
 
     width: $master-width;
-    // position: fixed;
-    // left: -$master-width;
-    // height: 100vh;
+    position: fixed;
+    left: -$master-width;
+    height: 100vh;
 
+    @media (min-width: $desktop) {
+        display: block;
+        position: static;
+        left: none;
+    }
+
+    
     background: #404e67;
-    box-shadow: 0 0 11px rgba(0,0,0,.13);
+    box-shadow: 0;
+    transition: all 0.5s;
+    &.show{
+        left: 0;
+        box-shadow: 0 0 11px rgba(0,0,0,.13);
+
+    }
     
     &__brand{
         height:$height-top;
@@ -126,6 +137,10 @@ $master-width: 17.2em;
                         &--1{
                             justify-content: center;
                         }
+
+                        // &--off:hover{
+                        //     color: rgb(149, 0, 0);
+                        // }
                     }
 
                     &__title{
@@ -136,11 +151,24 @@ $master-width: 17.2em;
                         line-height: 21px;
                         color: rgb(220, 220, 220);
                         transition: color 0.5s;
+
+                        // &--off{
+                        //     &:hover{
+                        //         color: rgb(149, 0, 0) !important;
+                                
+                        //     }
+                        // }
+
                     }
-                    // &__separator{
-                    //     justify-self: end;
-                    //     color: red;
-                    // }
+
+                    &--off p, &--off i{
+                        transition: color 0.5s;
+
+                    }
+
+                    &--off:hover p, &--off:hover i{
+                        color: rgb(107, 16, 16);
+                    }
                 }
 
             }
@@ -149,16 +177,30 @@ $master-width: 17.2em;
 }
 
 .main{
-    // margin-left: 0;
+    height: 100vh;
+    @media (min-width: $desktop) {
+        margin: 0;
+    }
+    transition: all 0.5s;
+    
+    &.show{
+        margin-left: $master-width;
+        @media (min-width: $desktop) {
+            margin: 0;
+        }
+    }
+    
     flex: 1 1 auto;
     background-color: rgb(246, 247, 251);
     overflow: auto;
+    
     &__header{
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: flex-start;
         
         background: #ffffff;
+        background-color: $secondary-color;
         padding: 1em;
         height: $height-top;
         box-shadow: 0 0 11px rgba(0,0,0,.13);
@@ -169,12 +211,28 @@ $master-width: 17.2em;
         i{
             font-size: 1.3em;
         }
+
+        @media (min-width: $desktop) {
+            display: none;
+        }
     }
 
     &__content{
+        // display: flex; // Borralo si tienes problemas
+        // background: red !important;
         // padding: 2.7em;
     }
 
+    // background: red;
 
 
+}
+
+#toggleButton{
+    cursor: pointer;
+    color: white;
+}
+
+#bolt{
+    text-align: center;
 }

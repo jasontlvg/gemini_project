@@ -58,6 +58,8 @@
 }
 
 .crudContainer{
+    // display: flex; // Borralo si tienes problemas
+    // flex-wrap: wrap; // Borralo si tienes problemas
     padding: $pc;
     
     @media (min-width: $desktop) {
@@ -127,8 +129,9 @@
             &__col{
                 // text-align: center;
                 // background: red;
-
+                
                 &--mas{
+                    display: flex;
                     // background: red;
 
                     &__a{
@@ -141,11 +144,11 @@
                             margin-right: $lala;
                         }
                         &--edit{
-                            color: skyblue;
+                            color: rgb(6, 119, 163);
                             margin-right: $lala;
                         }
                         &--trash{
-                            color: #b80101;
+                            color: #a11313;
                             margin-right: $lala;
                         }
 
