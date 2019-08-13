@@ -5,6 +5,9 @@
             <select class="custom-select" @v-for="departamento in departamentos" ref="selectedDepartament">
                 <option v-bind:value="departamento.id" v-for="departamento in departamentos">{{departamento.nombre}}</option>
             </select>
+            <select class="custom-select" @v-for="departamento in departamentos" ref="selectedDepartament">
+                <option v-bind:value="departamento.id" v-for="departamento in departamentos">{{departamento.nombre}}</option>
+            </select>
             <button @click="getSurveys">Buscar</button>
         </div>
         <!-- <button @click="getResults">Prueba</button> -->
@@ -28,6 +31,7 @@
         <!-- <canvas id="myChart"></canvas> -->
         {{resultados}}
       </div>
+      <p>Hola</p>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
