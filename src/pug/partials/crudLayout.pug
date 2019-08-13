@@ -21,8 +21,11 @@ mixin puma(x,y,z)
                                 block table__tbody__row__columns--extra
                                 a.table__tbody__row__col__a.table__tbody__row__col--mas__a.table__tbody__row__col--mas__a--edit(href=z)
                                     <i class="fas fa-edit"></i>
-                                a.table__tbody__row__col__a.table__tbody__row__col--mas__a.table__tbody__row__col--mas__a--trash(href="#")
-                                    <i class="fas fa-trash-alt"></i>
+                                .table__tbody__row__col__a.table__tbody__row__col--mas__a.table__tbody__row__col--mas__a--trash(href="#")
+                                    form(action="kakaroto" method="POST" id="form-trash")
+                                        button(type="submit" id="submit-button-destroy")
+                                            <i class="fas fa-trash-alt" id="form-trash-button"></i>
+                                            
                             </td>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

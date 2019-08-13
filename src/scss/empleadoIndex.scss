@@ -1,0 +1,36 @@
+@import 'partials/empleadoLayout';
+
+.containerSurveys{
+    // width: 100%;
+    margin: 0 auto;
+    max-width: 1250px;
+}
+
+.ui.special.cards{
+    display: flex;
+    justify-content: center;
+    // padding-top: 3em;
+}
+
+
+.ui.inverted.button{
+    transition: all 0.5s;
+    
+    &:hover{
+    }
+
+    &:hover a{
+        color: black
+    }
+}
+
+.contestar-boton{
+    color: white;
+}
+
+.ui.green.button{
+    line-height: 3em;
+    @media (min-width: $desktop) {
+        display: none;
+    }
+}

@@ -1,0 +1,24 @@
+extends partials/empleadoLayout
+block contenido
+    .containerSurveys
+        .main__title
+            h2.main__title Encuestas Disponibles
+            <div class="ui animated fade button" tabindex="0">
+            <div class="visible content">Sign-up for a Pro account</div>
+            <div class="hidden content">$12.99 a month</div>
+            </div>
+        .ui.special.cards
+            .card
+                .blurring.dimmable.image
+                    .ui.dimmer
+                        .content
+                            .center
+                                .ui.inverted.button
+                                    a(href="#" class="contestar-boton") Contestar
+                    img(src=require('../img/elliot.jpg'), alt="")
+                .content
+                    a.header(href="#") Personas
+                    .meta
+                        .date Created in Sep 2014
+                    .description Encuesta sobre las Personas del ambiente laboral                            
+                a.ui.green.button(href="") ¡Contestar!

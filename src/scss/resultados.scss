@@ -1,0 +1,23 @@
+@import 'partials/adminLayout';
+@import 'partials/bsMe';
+
+
+*{
+    box-sizing: border-box !important;
+}
+
+p{
+    padding: 0;
+    margin: 0;
+}
+
+.main{
+    @media (min-width: $desktop) {
+        padding: $pm;
+        
+    }
+}
+
+.info{
+    max-width: 100%;
+}

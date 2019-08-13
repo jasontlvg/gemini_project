@@ -36,6 +36,7 @@
 @import "bootstrap/spinners";
 @import "bootstrap/utilities";
 @import "bootstrap/print";
+$lala: 0.5em;
 
 // Reseteo de Borde de Input Seleccionado Bootstrap
 .exampleModal{
@@ -138,7 +139,7 @@
                         font-size: 18px;
                         color: $prime-color;
                         transition: color 0.5s;
-                        $lala: 0.5em;
+                        
                         &--info{
                             color: $prime-color;
                             margin-right: $lala;
@@ -175,4 +176,24 @@
 
 .agregar, .cancelar{
     margin-top: 1em;
+}
+
+#form-trash-button{
+    cursor: pointer;
+}
+
+#submit-button-destroy{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    color: #a11313;
+    margin-right: $lala;
+    &:hover{
+        color: #7a0e0e;
+    }
+}
+
+.swal2-cancel.btn.btn-danger{
+    margin-right: 1em;
 }

@@ -1,9 +1,6 @@
 // @import 'partials/bootstrap';
 @import 'partials/adminLayout';
 
-.lala:link {
-    color: #0000ff;
-    // border-bottom: 1px solid #ff0000;
-    text-decoration: none;
-    outline:none
+.indexContainer{
+    padding: $pm;
 }

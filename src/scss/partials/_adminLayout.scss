@@ -36,7 +36,8 @@ $master-width: 17.2em;
     // display: none;
     // display: fixed;
 
-    width: $master-width;
+    // width: $master-width;
+    width: 17.2em;
     position: fixed;
     left: -$master-width;
     height: 100vh;

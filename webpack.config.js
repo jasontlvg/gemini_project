@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer= require('autoprefixer');
 const CleanWebpackPlugin= require('clean-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 module.exports = {
     // devtool: "source-map",
     entry: {
@@ -14,11 +15,16 @@ module.exports = {
         editarDepartamentos:'./src/editarDepartamentos.js',
         editarEmpresas:'./src/editarEmpresas.js',
         verEmpleados:'./src/verEmpleados.js',
+        empleadoIndex:'./src/empleadoIndex.js',
+        personasEncuesta:'./src/personasEncuesta.js',
+        resultados:'./src/resultados.js',
+        selectDepartamentosRes:'./src/selectDepartamentosRes.js',
     },
     output: {
         path: __dirname+'/dist/',
-        publicPath: '/',
-        filename: 'js/[name].[chunkhash].js', // Quita el js/ si tenemos problemas
+        // publicPath: './',
+        filename: 'js/[name].js', // Quita el js/ si tenemos problemas
+        // filename: 'js/[name].[chunkhash].js', // Quita el js/ si tenemos problemas
         // publicPath: "/dist/"
     },
     devServer:{
@@ -77,6 +83,10 @@ module.exports = {
                 loader: "pug-loader", 
                 query: { pretty: true }
             },
+            { // Loader
+                test: /\.vue$/, 
+                loader: "vue-loader"
+            },
         ]
     },
     plugins: [
@@ -89,8 +99,14 @@ module.exports = {
         new HtmlWebpackPlugin({template: './src/pug/editarDepartamentos.pug', filename: 'editarDepartamentos.html' ,minify: false, chunks: ['editarDepartamentos']}),
         new HtmlWebpackPlugin({template: './src/pug/editarEmpresas.pug', filename: 'editarEmpresas.html' ,minify: false, chunks: ['editarEmpresas']}),
         new HtmlWebpackPlugin({template: './src/pug/verEmpleados.pug', filename: 'verEmpleados.html' ,minify: false, chunks: ['verEmpleados']}),
+        new HtmlWebpackPlugin({template: './src/pug/empleadoIndex.pug', filename: 'empleadoIndex.html' ,minify: false, chunks: ['empleadoIndex']}),
+        new HtmlWebpackPlugin({template: './src/pug/personasEncuesta.pug', filename: 'personasEncuesta.html' ,minify: false, chunks: ['personasEncuesta']}),
+        new HtmlWebpackPlugin({template: './src/pug/resultados.pug', filename: 'resultados.html' ,minify: false, chunks: ['resultados']}),
+        new HtmlWebpackPlugin({template: './src/pug/selectDepartamentosRes.pug', filename: 'selectDepartamentosRes.html' ,minify: false, chunks: ['selectDepartamentosRes']}),
         new MiniCssExtractPlugin({filename: "css/[name].css", chunkFilename: "[id].css" }), // Borra el 'css/' si quieres que se guarde en la raiz de 
         new webpack.ProvidePlugin({ $: 'jquery' }),
+        new webpack.ProvidePlugin({ jQuery: 'jquery' }),
+        new VueLoaderPlugin(),
     ],
     resolve: {
         alias: {
