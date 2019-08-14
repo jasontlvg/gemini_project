@@ -21,8 +21,8 @@
             </div>
         </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document" id="teclado">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Resultados</h5>
@@ -32,11 +32,11 @@
       </div>
       <div class="modal-body">
         <canvas id="myChart"></canvas>
-        <!-- {{resultados}} -->
+        {{resultados}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="reset">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
@@ -218,19 +218,33 @@
                     console.log(response.data);
                     este.resultados=response.data;
 
+                    if(window.chart != undefined){
+                        console.log('es la segunda')
+                        window.chart.destroy()
+                    }else{
+                        console.log('es la primera')
+                    }
+
                     $(function () { $('#exampleModal').modal({ show: true, keyboard: false, backdrop: 'static' }); });
-                    var ctx = document.getElementById('myChart').getContext('2d');
-                    var chart = new Chart(ctx, {
+                    window.ctx = document.getElementById('myChart').getContext('2d');
+                    window.chart = new Chart(ctx, {
                             // The type of chart we want to create
-                        type: 'pie',
+                        type: 'doughnut',
 
                         // The data for our dataset
                         data: {
                                 labels: este.respuestas,
                                 datasets: [{
                                     label: 'My First dataset',
-                                    backgroundColor: 'rgb(255, 99, 132)',
-                                    borderColor: 'rgb(255, 99, 132)',
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.5)',
+                                        'rgba(54, 162, 235, 0.5)',
+                                        'rgba(255, 206, 86, 0.5)',
+                                        'rgba(75, 192, 192, 0.5)',
+                                        'rgba(153, 102, 255, 0.5)',
+                                        'rgba(255, 159, 64, 0.5)'
+                                    ],
+                                    // borderColor: 'rgb(255, 99, 132)',
                                     data: este.resultados
                                 }]
                         },
@@ -243,6 +257,9 @@
                     console.log(error);
                 });
 
+            },
+            reset: function(){
+                this.resultados=[];
             }
         },
     }
@@ -269,5 +286,9 @@
 
     .encuestatitulo.show{
         display: block;
+    }
+
+    .kakaroto{
+        width:1200px !important;
     }
 </style>
