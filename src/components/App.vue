@@ -15,7 +15,9 @@
         <div class="selectSurveyContainer">
             <h2>Resultados de las Preguntas del Departamento '{{departamento.nombre}}' de la Encuesta {{encuesta.nombre}}</h2>
             <div class="list-group" ref="sdsd">
-                <div class="list-group-item list-group-item-action list-group-item-success lili" v-for="pregunta in preguntas">{{pregunta.pregunta}}</div>
+                <div class="list-group-item list-group-item-action list-group-item-success lili" v-for="pregunta in preguntas" @click="getNewResults(pregunta.pivot.encuesta_id,pregunta.id)">{{pregunta.pregunta}}</div>
+                <!-- <div class="list-group-item list-group-item-action list-group-item-success lili" v-for="pregunta in preguntas" @click="getNewResults(pregunta.pivot.encuesta_id)">{{pregunta.pregunta}}</div> -->
+                
             </div>
         </div>
 
@@ -29,10 +31,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <!-- <canvas id="myChart"></canvas> -->
-        {{resultados}}
+        <canvas id="myChart"></canvas>
+        <!-- {{resultados}} -->
       </div>
-      <p>Hola</p>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
@@ -52,46 +53,62 @@
                 departamento:{},
                 encuesta: {},
                 departamentos:{},
-                resultados:{},
+                resultados:[],
                 encuestas:[],
                 preguntas:[],
-                showSurveyTitle: false
+                showSurveyTitle: false,
+                respuestas:[]
             }
         },
         created: function(){
             let este=this;
             axios.get(raiz+'api/results')
+            .then( ({data}) => {
+                this.departamentos= JSON.parse(JSON.stringify(data));
+                // console.log(this.departamentos[0]);
+                let depId= this.departamentos[0].id;
+                let depName= this.departamentos[0].nombre;
+                // this.departamento=this.departamentos[0]; //AQUI ESTA EL PROBLEMA
+                this.departamento={id:depId,nombre:depName}; //AQUI ESTA EL PROBLEMA
+                // Machinima
+                axios.get(raiz+`api/results/encuestas/${este.departamento.id}`)
                 .then( ({data}) => {
-                    this.departamentos= JSON.parse(JSON.stringify(data));
-                    // console.log('this esta funcionando');
-                    this.departamento=this.departamentos[0];
-                    // Machinima
-                    axios.get(raiz+`api/results/encuestas/${este.departamento.id}`)
-                    .then( ({data}) => {
-                        // console.log(data)
-                        este.encuestas= data;
-                        este.encuesta= este.encuestas[0].encuesta;
-                        axios.get(raiz+`api/results/encuesta/preguntas/${este.encuesta.id}`)
-                            .then( ({data}) => {
-                                este.preguntas= data;
-                                // console.log('Primer peticion de preguntas:')
-                                // console.log(data)
-                            
-                            })
-                            .catch((error)=>{
-                                console.log(error.response.data)
-                            })
+                    // console.log(data)
+                    este.encuestas= data;
+                    este.encuesta= este.encuestas[0].encuesta;
+                    axios.get(raiz+`api/results/encuesta/preguntas/${este.encuesta.id}`)
+                        .then( ({data}) => {
+                            este.preguntas= data;
+                            // console.log('Primer peticion de preguntas:')
+                            // console.log(data)
+                        
                         })
-                    .catch((error)=>{
-                        console.log(error.response.data)
+                        .catch((error)=>{
+                            console.log(error.response.data)
+                        })
                     })
-                
-
-                })
                 .catch((error)=>{
                     console.log(error.response.data)
                 })
-            ;
+            })
+            .catch((error)=>{
+                console.log(error.response.data)
+            });
+
+            axios.get(raiz+'api/results/encuesta/respuestas')
+            .then(function (response) {
+                // handle success
+                // console.log(response);
+                console.log(JSON.parse(JSON.stringify(response)));
+                este.respuestas= JSON.parse(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
         },
         methods: {
             saludo(e){
@@ -123,34 +140,29 @@
                     // FALTA que this.departamento se ponga con el valor del departamento seleccionado
                     // tambien que this.encuesta tenga el nuevo
                 }
-
-
-
-                // let valueDepartament= e.options[e.selectedIndex].value;
-                // console.log(e)
-                // console.log('luis')
-                // console.dir(e.target.tagName)
-                // if(e.target.tagName == 'SELECT'){
-                //     console.log(e);
-                // }
-                // if(e.target.tagName == 'OPTION'){
-                //     console.log('Excelsior')
-                // }
-                // console.log('Saludos');
             },
             getSurveys: function(){
                 let este= this;
                 let e=this.$refs.selectedDepartament;
                 let s=this.$refs.selectedSurvey;
                 let valueDepartament= e.options[e.selectedIndex].value;
+                let nameDepartament= e.options[e.selectedIndex].innerHTML;
                 let valueSurvey= s.options[s.selectedIndex].value;
-                console.log(`valueDepartament: ${valueDepartament} -- valueSurvey: ${valueSurvey}` )
+                let nameSurvey= s.options[s.selectedIndex].innerHTML;
+                // console.log(`valueDepartament: ${valueDepartament} -- valueSurvey: ${valueSurvey}` )
+                console.log(nameSurvey)
+                // console.log(nameDepartament)
 
                 axios.get(raiz+`api/results/encuesta/preguntas/${valueSurvey}`)
                             .then( ({data}) => {
                                 este.preguntas= data;
-                                console.log('Segunda peticion de preguntas:')
-                                console.log(data)
+                                // // Actualizando el departamento de Vue
+                                este.departamento.id= valueDepartament;
+                                este.departamento.nombre= nameDepartament;
+
+                                // // Actualizando la variable encuesta de Vue
+                                este.encuesta.id=valueSurvey;
+                                este.encuesta.nombre= nameSurvey;
                             
                             })
                             .catch((error)=>{
@@ -172,46 +184,65 @@
             },
             getResults: function(encuesta){
                 // console.log(encuesta)
-                let este= this;
+                // let este= this;
 
-                axios.post(raiz+'api/results/lolo', {
-                    departamento: este.departamento,
-                    encuesta: encuesta
+                // axios.post(raiz+'api/results/lolo', {
+                //     departamento: este.departamento,
+                //     encuesta: encuesta
+                // })
+                // .then(function (response) {
+                //     let personTypes = JSON.parse(JSON.stringify(response.data));
+                //     console.dir(personTypes);
+                //     este.resultados=personTypes;
+                    // $(function () { $('#exampleModal').modal({ show: true, keyboard: false, backdrop: 'static' }); });
+
+
+
+                // })
+                // .catch(function (error) {
+                    //     console.log(error);
+                // });
+            },
+            getNewResults:function(encuesta_id,pregunta_id){
+                let este=this;
+                let departamento_id= this.departamento.id;
+                // console.log(encuesta_id)
+                // console.log(pregunta_id)
+                // console.log(departamento_id)
+                axios.post(raiz+'api/results/encuesta', {
+                    departamento_id: departamento_id,
+                    encuesta_id: encuesta_id,
+                    pregunta_id: pregunta_id
                 })
                 .then(function (response) {
-                    let personTypes = JSON.parse(JSON.stringify(response.data));
-                    console.dir(personTypes);
-                    este.resultados=personTypes;
+                    console.log(response.data);
+                    este.resultados=response.data;
+
                     $(function () { $('#exampleModal').modal({ show: true, keyboard: false, backdrop: 'static' }); });
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var chart = new Chart(ctx, {
+                            // The type of chart we want to create
+                        type: 'pie',
 
+                        // The data for our dataset
+                        data: {
+                                labels: este.respuestas,
+                                datasets: [{
+                                    label: 'My First dataset',
+                                    backgroundColor: 'rgb(255, 99, 132)',
+                                    borderColor: 'rgb(255, 99, 132)',
+                                    data: este.resultados
+                                }]
+                        },
 
-                    // var ctx = document.getElementById('myChart').getContext('2d');
-                    // var chart = new Chart(ctx, {
-                    //     // The type of chart we want to create
-                    //     type: 'pie',
-
-                    //     // The data for our dataset
-                    //     data: {
-                    //         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                    //         datasets: [{
-                    //             label: 'My First dataset',
-                    //             backgroundColor: 'rgb(255, 99, 132)',
-                    //             borderColor: 'rgb(255, 99, 132)',
-                    //             data: [0, 10, 5, 2, 20, 30, 45]
-                    //         }]
-                    //     },
-
-                    //     // Configuration options go here
-                    //     options: {}
-                    // });
-
+                        // Configuration options go here
+                        options: {}
+                    });
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-            },
-            getNew:function(){
-                
+
             }
         },
     }
